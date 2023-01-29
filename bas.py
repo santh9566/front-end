@@ -1,0 +1,16 @@
+x=5
+y=6
+if(x==y):
+    print("true")
+else:
+    print("false")
+x=5
+y=6
+if(x>=y):
+    print("true")
+else:
+    print("false")
+if(x<=y):
+    print("true")
+else:
+    print("false")
