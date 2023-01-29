@@ -1,0 +1,7 @@
+const bike1 = {
+    company : "KTM",
+    name: "adventure",
+    cc : 390,
+    mfgdate : "04/01/2023",
+}
+console.log(bike1.company + " " + bike1.name + " " + bike1.cc + " " + bike1.mfgdate)
