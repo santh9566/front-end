@@ -1,0 +1,23 @@
+<script>
+function Admission(){
+  var patient=prompt("enter the num of patient")
+  for (i=0;i<patient;i++){
+    name[i]=prompt("enter the name")
+    age[i]=prompt("enter the age")
+    gender[i]=prompt("enter the gender")
+    bP[i]=prompt("enter the BP")
+    sugarlevel[i]=prompt("enter the sugar level")
+  }
+  var date=new date(prompt("enter the date"));
+  for (i=0;i<patient;i++){
+    if(BP[i]>120 && Sugarlevel[i]>140){
+       document.write("person with high BP and high sugar"+Name[i]+"<br>"+Age[i]+"<br>"+Gender[i]+"<br>"+BP[i]+"<br>"+Sugarlevel[i])
+
+    }
+    else{
+      document.write("person with normal BP and normal sugar"+Name[i]+"<br>"+Age[i]+"<br>"+Gender[i]+"<br>"+BP[i]+"<br>"+Sugarlevel[i])
+    }
+  }
+}
+Admission()
+</script>   
