@@ -1,0 +1,169 @@
+  <html>
+    <head>
+        <title>Spotify</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+    <style>
+        body{
+            background-image:url("https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fpluspng.com%2Fimg-png%2Fpng-hd-music-notes-download-note-hd-png-png-hd-musical-notes-symbols-1920.png&f=1&nofb=1&ipt=ebf4eef9752cdee2f7ac12cf03d9775e671be3a234d0c0719abd04bc1b17c11d&ipo=images");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+        .container{
+            display: flex;
+            justify-content: space-between;
+
+        }
+        -buttons{
+            text-align: center;
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-evenly;
+
+        }
+        i{
+            background-color:white;
+            border: none;
+            padding: 14px;
+            margin: 11px;     
+            border-radius: 5px;
+            font-size: 26px;
+            cursor: pointer;
+        
+        }
+        i:hover{ 
+            background-color: black;
+        }
+        .card{
+            width: 350px;
+            height: 565px;
+            border: 1px solid #ccc;
+            overflow: hidden;
+            box-shadow: 0 0 15px rgba(0,0,0,0.8);
+            color: black;
+        }
+        .card-body{
+            padding: 10px;
+            background-color:white;
+            margin-top: -1px;
+            
+        }
+        h1{
+            text-align:left;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif  ;
+        }
+        .range{
+            padding: 10px;
+            margin: 15px;
+        }
+        input[type=range]{
+            width:80%;
+            appearance: none;
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+           width: 100%;
+           height: 10px;
+           cursor: pointer;
+           box-shadow: 1px 1px 1px #000000;
+           background:#000000;
+           border-radius: 5px;
+           border: 1px solid #000000;
+        }
+        input[type=range]::-webkit-slider-thumb {
+           box-shadow: 1px 1px 1px #000000;
+           border: 1px solid #000000;
+           height: 30px;
+           width: 15px;
+           border-radius: 15px;
+           background: #FFFFFF;
+           cursor: pointer;
+           -webkit-appearance: none;
+           margin-top: -7px;
+        }
+        input[type=text]{  
+            height: 5vh;
+            border-radius: 20px;
+        }
+        .fa-magnifying-glass{
+            width: 30px;
+        }
+    </style>
+  <body>
+    <div class="container">
+        <h1>Music</h1>
+        <div><input type="text"placeholder="whats your choice..."><i class="fa-sharp fa-solid fa-magnifying-glass"></i></div>
+    </div>
+<center>
+    <div class="container-buttons">
+     <figure>
+      <div class="item">
+        <div class="card">
+         <div class="card-body">
+           <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fdeveloper.spotify.com%2Fassets%2Fbranding-guidelines%2Flogo%402x.png&f=1&nofb=1&ipt=79e2ae44fbafc67faf452da3d8f7aa934e1943d3acc6cf6155559fbb94dd3d66&ipo=images"height="70vh">
+            <img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.behindwoods.com%2Fhindi-tamil-galleries%2Fayan-3%2Fayan-02.jpg&f=1&nofb=1&ipt=e7e89aa158dcb9543f21d98d902fc0f6bef4723c6d3b30948e22dd78649748e2&ipo=images" height="250px">  <br><br>
+          <input type="range" id="duration" min="0" max="100" value="0"><br>
+          <p><strong>Pala Palakkura</strong>.Harris Jeyaraj Hits/spotify.org</p>
+          <audio id="audio" loop>
+            <source src="pala palakkura.mp3" type="audio/mpeg">
+          </audio>
+          <i class="fa-solid fa-backward-step"></i>
+          <i id="playbtn" class="fa-solid fa-play"></i>  
+          <i class="fa-solid fa-forward-step"></i><br>
+          <i class="fa-solid fa-heart"></i>
+          <i class="fa-solid fa-sliders"></i>
+          </div>
+         </div>
+      </div>
+      </figure>
+    </div>
+</center>
+<script>
+    var audio=document.getElementById('audio');
+    var play=document.querySelector('.fa-play');
+    var btn=document.getElementById('playbtn');
+    var ff_btn=document.querySelector('.fa-forward-step');
+    var fb_btn=document.querySelector('.fa-backward-step');
+    var durationSlider=document.getElementById('duration');
+    play.addEventListener('click',()=>{
+        if (audio.paused) {
+            btn.classList.remove('fa-pause');
+            btn.classList.add('fa-play');
+            audio.play();
+        }
+        else {
+            btn.classList.remove('fa-play');
+            btn.classList.add('fa-pause');
+            audio.pause();
+        }
+        play.style.transform="scale(1.2)";
+        setTimeout(() =>{
+            play.style.transform="scale(1)";
+        },  200)
+    });
+    ff_btn.addEventListener('click',()=>{
+        audio.currentTime += 10;
+        ff_btn.style.transform="scale(1.2)";
+        setTimeout(() => {
+            ff_btn.style.transform="scale(1)";
+        },200)
+    });
+    fb_btn.addEventListener('click',() => {
+        audio.currentTime -= 10;
+        fb_btn.style.transform ="scale(1.2)";
+        setTimeout(() => {
+            fb_btn.style.transform="scale(1)";
+        },200)
+    })    
+    audio.addEventListener('loadmetadata',() => {
+        durationSlider.max = audio.duration;
+    })
+    durationSlider.addEventListener('input',() => {
+        audio.currentTime = durationSlider.value;
+    })
+    audio.addEventListener('timeupdate',() =>  {
+        durationSlider.value =  audio.currentTime
+    });
+</script>
+ </body>
+</html>
